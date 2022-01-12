@@ -25,33 +25,8 @@ while (True):
         time.sleep(1)
         driver.execute_script("course_api()")
         time.sleep(1)
-
-
     else:
         playsound('sound.wav')
         break
 
 
-
-
-
-
-
-
-
-
-
-
-# openOrClose= driver.find_element_by_xpath("//*[contains(text(), '{courseCRN}')]")
-
-# print(openOrClose.text)
-
-
-# /html/body/section[2]/div/div/div/div[2]/table/tbody/tr[3]/td[3]
-
-
-# /html/body/section[2]/div/div/div/div[2]/table/tbody/tr[3]/td[9]/span
-
-
-# stringButtonForRefresh = "course_api()"
-# driver.execute_script(stringButtonForRefresh)

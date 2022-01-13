@@ -8,13 +8,19 @@ from playsound import playsound
 
 driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
 driver.get('https://registrar.kfupm.edu.sa/courses-classes/course-offering/')
-termSelect = Select(driver.find_element_by_id('course_term_code')).select_by_index(2)
-depSelect = Select(driver.find_element_by_id('course_dept_code')).select_by_index(19)
 
+termSelect = Select(driver.find_element_by_id('course_term_code')).select_by_index(2)
+depSelect = Select(driver.find_element_by_id('course_dept_code'))
+
+i = 0
+for item in depSelect.options:
+    print(str(i)+' - '+item.get_attribute('innerText'), item.get_attribute('value'))
+    i=i+1
+
+department = input("Enter the dpartment index: ")
+depSelect.select_by_index(department)
 
 courseCRN = int(input('Enter the course CRN: '))
-# print("hello {courseCRN}")
-# time.sleep(1)
 
 
 while (True):
@@ -26,7 +32,8 @@ while (True):
         driver.execute_script("course_api()")
         time.sleep(1)
     else:
-        playsound('sound.wav')
+        for i in range(20):
+            playsound('sound.wav')
         break
 
 
